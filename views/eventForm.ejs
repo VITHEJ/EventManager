@@ -1,0 +1,37 @@
+<% layout('/layouts/biolerplate.ejs') -%>
+<body>
+<div class="addevent col-4 mx-auto mt-5 mb-5 p-4 border rounded-3 shadow">
+    <form method="post" enctype="multipart/form-data" action="/addevent" >
+        <h2 id="addevent" >Create An Event</h2>
+        <div class="mb-3 ">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+        </div>
+        <div class="mb-3 ">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" name="image" required>
+        </div>
+       
+       
+      
+        
+         <div class="mb-3">
+            <label for="lastDate" class="form-label">Last Date</label>
+            <input type="text" class="form-control" id="lastDate" placeholder="Enter lastDate" name="lastDate" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Registration fees</label>
+            <input type="number" class="form-control" id="price" placeholder=" Enter Registration fees" name="price" required>
+        </div>
+        <div class="mb-3 ">
+            <label for="Prize1" class="form-label">1<sup>st</sup> Prize</label>
+            <input type="number" class="form-control" id="prize1" placeholder="Enter Prize details" name="prize1" required>
+        </div>
+         <div class="mb-3 ">
+            <label for="Prize2" class="form-label">2<sup>nd</sup> Prize</label>
+            <input type="number" class="form-control" id="prize2" placeholder="Enter Prize details" name="prize2" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-signup ">Add</button>
+    </form>
+</div>
+</body>

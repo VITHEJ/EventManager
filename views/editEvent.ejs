@@ -1,0 +1,43 @@
+<% layout('/layouts/biolerplate.ejs') -%>
+<body>
+<div class="addevent col-4 mx-auto mt-5 mb-5 p-4 border rounded-3 shadow">
+    <form method="post" enctype="multipart/form-data" action="/addevent/<%= eventDetails._id %>?_method=PATCH" >
+        <h2 id="addevent" >Edit Event</h2>
+        <div class="mb-3 ">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="<%=eventDetails.name%>" name="name" value="<%=eventDetails.name%>" required>
+        </div>
+        <div class="mb-3">
+    <label for="image">Original Image</label>
+    <br>
+    <img src="<%=eventDetails.image.url%>" alt="Original Image" class="img-fluid mb-2" style="max-width: 300px; max-height: 200px;">
+</div>
+
+        <div class="mb-3 ">
+            <label for="image" class="form-label"> Upload New Image</label>
+            <input type="file" class="form-control" id="image" name="image" >
+        </div>
+       
+       
+      
+        
+         <div class="mb-3">
+            <label for="lastDate" class="form-label">Last Date</label>
+            <input type="text" class="form-control" id="lastDate" placeholder="<%= eventDetails.lastDate%>" name="lastDate" value="<%=eventDetails.lastDate%>" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Registration fees</label>
+            <input type="number" class="form-control" id="price" placeholder="<%= eventDetails.price%>" name="price" value="<%=eventDetails.price%>" required>
+        </div>
+        <div class="mb-3 ">
+            <label for="Prize1" class="form-label">1<sup>st</sup> Prize</label>
+            <input type="number" class="form-control" id="prize1" placeholder="<%= eventDetails.prize[0]%>" name="prize1" value="<%=eventDetails.prize[0]%>" required >
+        </div>
+         <div class="mb-3 ">
+            <label for="Prize2" class="form-label">2<sup>nd</sup> Prize</label>
+            <input type="number" class="form-control" id="prize2" placeholder="<%= eventDetails.prize[1]%>" name="prize2" value="<%=eventDetails.prize[1]%>" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-signup ">Add</button>
+    </form>
+</div>
+</body>

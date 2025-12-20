@@ -1,0 +1,64 @@
+
+
+<nav class="navbar navbar-expand-md bg-body-secondary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><svg width="60" height="60" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #0A3D91; }
+      .border { fill: none; stroke: #FFFFFF; stroke-width: 18; stroke-linejoin: round; }
+      .icon { fill: #FFFFFF; }
+      .text { fill: #FFFFFF; font-size: 42px; font-family: 'Segoe UI', sans-serif; font-weight: 700; }
+    </style>
+    <!-- Curved text path moved down slightly -->
+    <path id="uppercurve" d="M120 205 A140 140 0 0 1 392 205" />
+  </defs>
+
+  <!-- Emblem Badge -->
+  <path class="bg" d="M256 20 L460 120 L420 380 L256 490 L92 380 L52 120 Z"/>
+  <path class="border" d="M256 20 L460 120 L420 380 L256 490 L92 380 L52 120 Z"/>
+
+  <!-- Curved Text on Upper Side -->
+  <text class="text">
+    <textPath href="#uppercurve" startOffset="50%" text-anchor="middle">
+      EventManager
+    </textPath>
+  </text>
+
+  <!-- Calendar + People Icon -->
+  <!-- Calendar -->
+  <rect x="160" y="210" width="192" height="160" rx="12" class="icon"/>
+  <rect x="160" y="190" width="192" height="40" class="bg"/>
+  <circle cx="200" cy="210" r="12" class="icon"/>
+  <circle cx="312" cy="210" r="12" class="icon"/>
+
+  <!-- People -->
+  <circle cx="256" cy="360" r="34" class="icon"/>
+  <circle cx="214" cy="380" r="24" class="icon"/>
+  <circle cx="298" cy="380" r="24" class="icon"/>
+</svg>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+      
+         
+      <div class="navbar-nav ms-auto">
+       <%if(!currUserEmail){  %> 
+          <a class="nav-link" href="/signup"><b>SignUp</b></a>
+      
+        
+          <a class="nav-link" href="/login"><b>Login</b></a>
+        <% }else{ %>
+        <a class="nav-link" href="/logOut"><b>LogOut</b></a>
+        <%  }%>
+        
+      </div>
+          
+       
+    </div>
+  </div>
+</nav>

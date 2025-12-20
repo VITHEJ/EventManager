@@ -1,0 +1,27 @@
+<% layout('/layouts/biolerplate.ejs') -%>
+<% error %>
+<body>
+<div class="login text-center cols-4 mx-auto  mt-5 mb-5 p-4 border rounded-3 shadow">
+    <form method="post" action="/login">
+        <h2 id="h2">Login to Your Account</h2>
+        <div class="mb-3 ">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required name="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password" required name='password'>
+        </div>
+        <div class="mb-3">
+            <label for="person" class="form-label">Coordinator/Participant</label>
+          <input type="text" class="form-control" id="password" placeholder="Enter Coordinator/Participant" required name='person'>
+
+
+        </div>
+        <div class="mb-3">
+            <a href="/signup">Don't have an account? Sign Up</a>
+        </div>
+        <button type="submit" class="btn btn-primary">Login <i class="fa-solid fa-right-to-bracket"></i></button>
+    </form>
+    </div>
+    </body>

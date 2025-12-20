@@ -1,0 +1,45 @@
+<% layout('/layouts/biolerplate.ejs') -%>
+<body>
+  <div class="heading" style="margin-left:2rem; margin-top:2rem;">
+    <h2><b>Participant Dashboard</b></h2>
+   
+    <h3>Events Available</h3>
+  </div>
+    
+     
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <%for(event of events){%>
+         <div class="card" style="width: 18rem;">
+  <img src="<%=event.image.url%>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h4 class="card-title"><b><%=event.name %></b></h4>
+    <p class="card-text"><b>Last Date:</b><%= event.lastDate %></p>
+    <p class="card-text"><b>Registration Fees:</b><span>&#8377;</span>
+<%= event.price %></p>
+     <p class="card-text"><b>1<sup>st</sup>Prize:</b><span>&#8377;</span>
+<%=event.prize[0]%></p>
+     <p class="card-text"><b>2<sup>nd</sup>Prize:</b><span>&#8377;</span>
+<%=event.prize[1]%></p>
+     <% if(!event.registeredParticipants.includes(details._id)){ %>
+<a href="/registerEvent/<%= event._id %>" class=" register btn btn-primary">Register</a>
+     <% } else{%>
+      <a href="" class=" registered btn btn-primary">Registered</a>
+      <% } %>
+  </div>
+</div>
+     
+      <% } %>
+</div>
+    <script>
+      let btn=document.querySelectorAll('.registered');
+      btn.forEach((button)=>{
+        button.addEventListener('click',(e)=>{
+          e.preventDefault();
+          alert('You have already registered for this event.');
+         
+        });
+      });
+    </script>
+   
+    </body>

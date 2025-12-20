@@ -1,0 +1,35 @@
+<% layout('/layouts/biolerplate.ejs') -%>
+<body>
+  
+    <h2 style="margin-left:2rem; margin-top:2rem;"><b>Coordinator Dashboard</b></h2>
+     <a href="/addevent"><button  class="btn btn-primary" style="margin-left:1rem; margin-top:2rem;">Create An Event</button></a>
+    <h3 style="margin-left:2rem; margin-top:2rem;">Events Hosted</h3>
+
+    
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for(event of events){ %>
+         <div class="card" style="width: 18rem;">
+          <br>
+  <img src="<%=event.image.url%>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%=event.name %></h5>
+    <div class="links">
+      <form method="get" action="/participants/<%= event._id %>">
+    <button class="btn btn-primary">Details</button>
+  </form>
+    
+   <form method="get" action="/participants/<%= event._id %>/edit">
+    <button class="btn btn-primary">Edit</button>
+  </form>
+  <form method="post" action="/participants/<%= event._id %>?_method=DELETE">
+    <button class="btn btn-primary">Delete</button>
+  </form>
+    </div>
+   
+  </div>
+  </div>
+
+        <% } %>
+  </div>
+    
+    </body>

@@ -1,0 +1,34 @@
+<% layout('/layouts/biolerplate.ejs') -%>
+<body>
+    <caption><h2 id="particpantdetails"><b>Participants Details</b></h2></caption>
+    
+    <table class="table table-striped table-hover">
+   
+   <tr>
+    
+    <th>Name</th>
+    <th>College</th>
+    <th>Branch</th>
+    <th>Year</th>
+    <th>RollNo</th>
+    <th>Phone</th>
+    <th>Email</th>
+   </tr>
+   
+   <% for(res of result){ %>
+    
+    <tr>
+        
+        <td><%=res.name%></td>
+        <td><%=res.college%></td>
+        <td><%=res.branch%></td>
+        <td><%=res.year%></td>
+        <td><%=res.rollno%></td>
+        <td><%=res.phone%></td>
+        <td><%=res.email%></td>
+    </tr>
+    
+    <% } %>
+</table>
+</body>
+
