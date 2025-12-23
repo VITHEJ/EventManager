@@ -34,14 +34,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.json());
-  mongoose.connect(dbUrl)
+  mongoose.connect(dburl)
   .then(() => console.log('Connected!'));
 
 
  
 
   const store=MongoStore.create({
-      mongoUrl:dbUrl,
+      mongoUrl:dburl,
       crypto:{
           secret:secret,
       },
@@ -255,6 +255,21 @@ app.get('/registerEvent/:id',logincheck,async(req,res)=>{
  
 
 })
+
+//cancel registation for an event
+app.get("/cancelRegisteration/:id",logincheck,async(req,res)=>{
+    let {id}=req.params;
+    let event=await Event.findById(id);
+    console.log(event);
+    let useremail=req.signedCookies.email;
+    let user=await User.find({email:useremail});
+        event.registeredParticipants.pop( user[0]._id);
+    await event.save();
+    console.log(event);
+    req.flash("success",`Cancelled Registration for ${event.name} Successfully `)
+    res.redirect(`/participant/${user[0]._id.toString()}`);
+})
+
 
 //participant registered for an  specific event
 app.get("/participants/:id",logincheck,async(req,res)=>{

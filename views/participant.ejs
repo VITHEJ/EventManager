@@ -24,7 +24,8 @@
      <% if(!event.registeredParticipants.includes(details._id)){ %>
 <a href="/registerEvent/<%= event._id %>" class=" register btn btn-primary">Register</a>
      <% } else{%>
-      <a href="" class=" registered btn btn-primary">Registered</a>
+      
+      <a href="/cancelRegisteration/<%= event._id %>" class="btn btn-primary">Cancel Registration</a>
       <% } %>
   </div>
 </div>
