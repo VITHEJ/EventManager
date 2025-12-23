@@ -34,14 +34,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.json());
-  mongoose.connect(dburl)
+  mongoose.connect(dbUrl)
   .then(() => console.log('Connected!'));
 
 
  
 
   const store=MongoStore.create({
-      mongoUrl:dburl,
+      mongoUrl:dbUrl,
       crypto:{
           secret:secret,
       },
